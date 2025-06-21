@@ -1,0 +1,1 @@
+<div class="container"><h2>Setting Page</h2><p>This is a placeholder for the Setting tab.</p></div> 

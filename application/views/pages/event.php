@@ -1,0 +1,1 @@
+<div class="container"><h2>Event Page</h2><p>This is a placeholder for the Event tab.</p></div> 

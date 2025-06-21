@@ -1,0 +1,1 @@
+<div class="container"><h2>Sign Up</h2><p>This is a placeholder for the Sign Up page.</p></div> 

@@ -1,0 +1,25 @@
+{
+  "name": "edmate-up",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:assets\" \"npm run dev:server\"",
+    "dev:assets": "cd assets && npm run dev",
+    "dev:server": "php -S localhost:8000",
+    "build": "cd assets && npm run build",
+    "build:watch": "cd assets && npm run build:watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lms",
+    "education",
+    "php",
+    "codeigniter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Edumate Learning Management System",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

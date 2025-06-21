@@ -1,0 +1,1 @@
+<div class="container"><h2>Reset Password</h2><p>This is a placeholder for the Reset Password page.</p></div> 
