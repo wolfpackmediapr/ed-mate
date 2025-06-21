@@ -333,7 +333,7 @@ class CoursesController extends CI_Controller
             // Insert quiz details if it's a new quiz
             $quiz_data = [
                 'quiz_title' => $quiz_title,
-                'lesson_id' => 1,
+                'lesson_id' => $lesson_id,
                 'course_id' => $course_id,
                 'createdAt' => date('Y-m-d H:i:s'),
             ];

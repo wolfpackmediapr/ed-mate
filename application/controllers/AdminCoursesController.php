@@ -463,6 +463,7 @@ class AdminCoursesController extends CI_Controller
         $quiz_title = $this->input->post('quiz_title');
         $questions = json_decode($this->input->post('questions'), true);
         $quiz_id = $this->input->post('quiz_id'); // Assuming quiz_id is sent from the frontend if it's an update
+        $lesson_id = $this->input->post('lesson_id');
 
         // Start transaction to ensure atomicity
         $this->db->trans_start();
@@ -472,7 +473,7 @@ class AdminCoursesController extends CI_Controller
             // Update quiz details
             $quiz_data = [
                 'quiz_title' => $quiz_title,
-                'lesson_id' => 1,
+                'lesson_id' => $lesson_id,
                 'updatedAt' => date('Y-m-d H:i:s'),
             ];
             $this->db->where('id', $quiz_id);
@@ -491,7 +492,7 @@ class AdminCoursesController extends CI_Controller
             // Insert quiz details if it's a new quiz
             $quiz_data = [
                 'quiz_title' => $quiz_title,
-                'lesson_id' => 1,
+                'lesson_id' => $lesson_id,
                 'createdAt' => date('Y-m-d H:i:s'),
             ];
             $this->db->insert('quizzes', $quiz_data);
