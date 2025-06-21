@@ -351,6 +351,7 @@ class StudentCoursesController extends CI_Controller
                     'course_id' => $course_id,
                     'file_size' => $fileDetails['filesize'],
                     'path' => $fileData['file_name'],
+                    'resource_type' => $fileDetails['filetype'],
                 ];
 
                 // Insert into 'uploads' table
@@ -364,6 +365,7 @@ class StudentCoursesController extends CI_Controller
                     'path' => base_url('uploads/resources/' . $fileData['file_name']),
                     'thumbnail' => base_url('uploads/resources/' . $fileData['file_name']), // Placeholder thumbnail
                     'duration' => isset($fileDetails['duration']) ? $fileDetails['duration'] : null, // Video duration or null for PDFs
+                    'filetype' => $fileDetails['filetype'],
                     'description' => 'Uploaded successfully'
                 ];
             } else {
@@ -396,7 +398,8 @@ class StudentCoursesController extends CI_Controller
                     'duration' => $file['playtime_string'],
                     'width' => $file['video']['resolution_x'],
                     'height' => $file['video']['resolution_y'],
-                    'filesize' => $file['filesize']
+                    'filesize' => $file['filesize'],
+                    'filetype' => $fileExtension,
                 ];
             } else {
                 // Handle cases where video data is missing
@@ -411,6 +414,7 @@ class StudentCoursesController extends CI_Controller
             if (isset($file['filesize'])) {
                 return [
                     'filesize' => $file['filesize'],
+                    'filetype' => $fileExtension,
                     'message' => 'PDF file uploaded successfully.'
                 ];
             } else {
