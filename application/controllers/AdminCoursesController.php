@@ -442,15 +442,15 @@ class AdminCoursesController extends CI_Controller
 
     public function deleteVideo()
     {
-        $fileId = $this->input->post('upload_id');
-        $file = $this->common_model->select_where_return_row('*', 'uploads', array('upload_id' => $fileId));
+        $resourceId = $this->input->post('resource_id');
+        $resource   = $this->common_model->select_where_return_row('*', 'resources', array('resource_id' => $resourceId));
 
         // Construct the absolute server path for the file
-        $filePath = FCPATH . 'uploads/videos/' . $file->file_path;
+        $filePath = FCPATH . 'uploads/resources/' . $resource->path;
 
-        if ($file && file_exists($filePath)) {
+        if ($resource && file_exists($filePath)) {
             unlink($filePath); // Delete the file from the server
-            $this->common_model->delete_where(array('upload_id' => $fileId), 'uploads');
+            $this->common_model->delete_where(array('resource_id' => $resourceId), 'resources');
 
             echo json_encode(['success' => true]);
         } else {
