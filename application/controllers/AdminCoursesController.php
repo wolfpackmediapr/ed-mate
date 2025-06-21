@@ -383,7 +383,8 @@ class AdminCoursesController extends CI_Controller
                     'duration' => $file['playtime_string'],
                     'width' => $file['video']['resolution_x'],
                     'height' => $file['video']['resolution_y'],
-                    'filesize' => $file['filesize']
+                    'filesize' => $file['filesize'],
+                    'filetype' => $fileExtension,
                 ];
             } else {
                 // Handle cases where video data is missing
@@ -398,6 +399,7 @@ class AdminCoursesController extends CI_Controller
             if (isset($file['filesize'])) {
                 return [
                     'filesize' => $file['filesize'],
+                    'filetype' => $fileExtension,
                     'message' => 'PDF file uploaded successfully.'
                 ];
             } else {
